@@ -1,0 +1,27 @@
+
+.submit-tweet {
+  font-family: 'Bungee';
+}
+
+input[type=submit] {
+  background-color: #4056A1;
+  color: #FFFFFF;
+  margin-bottom: 5%;
+}
+.counter {
+  float: right;
+}
+
+textarea[name=text] {
+  width: 100%;
+  background-color: #f4f1ec;
+  border: none;
+  border-bottom: 3px solid #545149;
+  outline: 0px;
+  resize: none;
+  box-sizing: border-box;
+  height: 50px;
+  font-family: 'Source Sans Pro', 'sans-serif';
+  font-weight: 600;
+  margin-bottom: 18px;
+}

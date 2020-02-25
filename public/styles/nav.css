@@ -1,0 +1,28 @@
+nav {
+  background-color: #4056A1;
+  font-family: 'Bungee';
+  color: #FFFFFF;
+  position: fixed;
+  height: 120px;
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  top: 0em;
+
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  font-family: 'Source Sans Pro';
+  margin-right: 40px;
+}
+
+.logo {
+  margin-left: 40px;
+}

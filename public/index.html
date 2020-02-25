@@ -6,24 +6,73 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://www.transparenttextures.com/patterns/back-pattern.png" rel="stylesheet">
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/article-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
-    </nav>
+      <nav class="navbar">
+        <div>
+          <span class="logo">tweeter</span>
+        </div>
+        <div>
+          <span class="nav"><b>Write</b> a new tweet</span>
+        </div>
+      </nav>
+  
+      <header class="header"> 
+          <div>
+              <img src="/images/profile-hex.png"> 
+          </div>
+          <br>
+          <div>
+              <h2 class="name">Your Name</h2>
+          </div>
+    </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST">
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <div class="submit-tweet">
+            <input type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </div>
+        </form>
+      </section>
+
+      <article id="tweet-container"> 
+        <header>Header</header>
+        <!-- <p>Here will be posted tweet</p> -->
+        <textarea name="text" id="tweet">Here will be posted tweet</textarea>
+        <footer>Footer</footer>
+      </article>
+
+      <p>bubbles (boolean) This indicates whether this is a “bubbling” event (which we’ll explain later).
+        preventDefault (function) This prevents any default behaviour from occurring that the user agent (i.e. browser) might carry out in relation to the event (for example, preventing a click event on an <a> element from loading a new page).
+        stopPropagation (function) This prevents any callbacks from being fired on any nodes further along the event chain, but it does not prevent any additional callbacks of the same event name from being fired on the current node. (We’ll talk about that later.)</p>
+
+    </main>
+    
+
   </body>
 </html>

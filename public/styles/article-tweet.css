@@ -1,0 +1,19 @@
+#tweet-container{
+  border: solid;
+  padding: 10px;
+}
+article:hover {
+  box-shadow: 10px 10px 5px #9ab7d0;
+}
+
+#tweet-container header{
+  background-color: #f4f1ec;
+  margin-bottom: 6%;
+}
+
+#tweet-container textarea{
+  border-bottom: 3px solid #545149;
+  font-family: 'Source Sans Pro', 'sans-serif';
+  font-weight: 300;
+  color: #545149;
+}
