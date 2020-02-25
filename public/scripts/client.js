@@ -16,9 +16,9 @@ const tweetData = {
 }
 
 
-const createTweetElement = (object) {
+// const createTweetElement = (object) {
 
-}
+// }
 
 
 const $tweet = createTweetElement(tweetData);
