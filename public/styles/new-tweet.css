@@ -12,6 +12,14 @@ input[type=submit] {
   float: right;
 }
 
+.counter-default {
+  color: #545149;
+} 
+.counter-error {
+  color:red;
+}
+
+
 textarea[name=text] {
   width: 100%;
   background-color: #f4f1ec;

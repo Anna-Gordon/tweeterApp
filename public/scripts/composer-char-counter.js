@@ -1,12 +1,4 @@
 $(document).ready(() => {
-
-  // let limit = 140;
-  // $('textarea').keyup(function() {
-  //   count = $(this).val().length;
-  //   let remaining = limit - count;
-  //   update(remaining);
-  // });
-
   
   let limit = 10;
   
@@ -23,9 +15,9 @@ $(document).ready(() => {
 
   function update(count) {
     if (count < 0) {
-      $('.counter').html(count).css('color', 'red');
-    } else {
-      $('.counter').html(count).css('color', '#545149');
+      $('.counter').html(count).addClass('counter-error');
+    } else if (count >= 0) {
+      $('.counter').html(count).removeClass('counter-error');
     }
   }
 
