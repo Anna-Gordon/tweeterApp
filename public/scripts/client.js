@@ -6,11 +6,11 @@
 $(document).ready(() => {
 
 
-  // BUTTON IN NAVBAR ====================================
+  // TOGGLE IN NAVBAR ====================================
 
   
   $('#toggle').on('click', () => {
-    $('.new-tweet').slideToggle();
+    $('.new-tweet').slideToggle(500);
     $('#tweet-text').focus(); 
   });
 
@@ -50,7 +50,7 @@ $(document).ready(() => {
       }   
     };
     
-  // FORM SUBMISSION ==============================================
+  // FORM SUBMISSION === ERROR MESSAGE ==== SAFEHTML==========
 
   const loadtweets = () => {
     $.get('/tweets', { method: 'GET' })
@@ -58,6 +58,7 @@ $(document).ready(() => {
         let newTweet = [response[response.length - 1]]
         renderTweets(newTweet); 
         $('#tweet-text').val('').focus();  
+        $('.counter').html('140');
       })
       .catch((err) => {
         console.log('Something went wrong', err);
@@ -70,16 +71,17 @@ $(document).ready(() => {
     
     let tweetText = $('#tweet-text').val();
     const safeHTML = `<p>${escape(tweetText)}</p>`;
+    const $errorMessage = $('.error-message');
+    const errIcon ='<i class="fa fa-times-circle"></i>';
     if (tweetText === null || tweetText.length < 1 ) {  
-      $('.error-message').text('Type your tweet').slideDown(200)  
-      // $('#error-message-text').text('Type your tweet')
-      $('.error-message').slideDown(200)
+      $errorMessage.html(errIcon + ' Please, type your tweet').slideDown(200)  
+      // $('.error-message').slideDown(200)
       $('#tweet-text').focus();
     } if (tweetText.length - 1 >= 140) {
-      $('.error-message').text("Your tweet is too long. Maxlength 140 characters").slideDown(200);
+      $errorMessage.html(errIcon + ' Your tweet is too long. Maxlength is 140 characters').slideDown(200);
       $('#tweet-text').focus();
     } else if (safeHTML.includes('%3C')) {
-      $('.error-message').text("Unsecure text tweet has been submitted").slideDown(200);
+      $errorMessage.html(errIcon + ' Unsecure text tweet has been submitted').slideDown(200);
       $('#tweet-text').val('').focus();
     } else {
       $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })

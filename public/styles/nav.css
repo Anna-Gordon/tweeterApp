@@ -40,6 +40,17 @@ nav {
   text-align: center;
 }
 
+#toggle {
+  opacity: 1;
+  animation: fade 1.5s linear;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
+}
 /* #toggle {
   animation-name: bounce-2;
   animation-timing-function: ease;
@@ -51,3 +62,28 @@ nav {
   50%  { transform: translateY(-100px); }
   100% { transform: translateY(0); }
 } */
+/* 
+.animated {
+  /* background-image: url(/css/images/logo.png); */
+  /* background-repeat: no-repeat;
+  background-position: left top;
+  /* padding-top:95px; */
+  /* margin-bottom:60px; */
+  /* -webkit-animation-duration: 10s;animation-duration: 10s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+} */ 
+
+/* @-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+} */ 

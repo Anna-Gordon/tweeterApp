@@ -21,17 +21,17 @@
   </head>
   
   <body>
-    <!-- Top nav bar (fixed) -->
+    <!-- NAVBAR-->
     <nav class="navbar">
       <div>
         <span class="logo">tweeter</span>
       </div>
       <div class="toggle">
         <span class="nav"><b>Write</b> a new tweet</span>
-        <i id="toggle" class="fas fa-angle-double-down"></i>
+        <i id="toggle" class="fas fa-angle-double-down animated fadeout"></i>
       </div>
     </nav>
-    
+    <!-- HEADER -->
     <header class="header"> 
       <div>
         <img src="/images/profile-hex.png"> 
@@ -42,14 +42,16 @@
       </div>
     </header>
     
-    <!-- Page-specific (main) content here -->
+
     <main class="container">
-      
+
       <section class="new-tweet">
+        <!-- Error message -->
         <div class="error-message">
           <i class="fa fa-times-circle"></i>
-          <div id="error-message-text"></div>
-       </div>
+        </div>
+        
+        <!-- Compose Tweet Form  -->
         <h2>Compose Tweet</h2>
         <form id="post-tweet">
           <textarea id="tweet-text" name="text" placeholder="What are you humming about?"></textarea>
@@ -60,25 +62,10 @@
         </form>
       </section>
       
-      <section class="tweets-container">
-
-      </section>
-      <!-- <article class="tweets-container">  -->
-        <!-- <header>
-          <div>
-            <img class="avatars" src="https://i.imgur.com/73hZDYK.png"> 
-            <p class="name"></p>
-          </div>
-          <span class="handle"></span>
-        </header>
-        
-        <textarea name="text" class="tweet"></textarea>
-        <footer>
-          <h6 class="timestemp"></h6>
-        </footer> -->
-      <!-- </article> -->
+    <!-- Tweets Articles -->
+      <section class="tweets-container"></section>
       
-        </main>
+    </main>
         
         
     <!-- External JS -->
