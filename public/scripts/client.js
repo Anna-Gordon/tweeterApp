@@ -6,6 +6,13 @@
 $(document).ready(() => {
 
 
+  // BUTTON IN NAVBAR ====================================
+
+  
+  $('#toggle').on('click', () => {
+    $('.new-tweet').slideToggle();
+    $('#tweet-text').focus(); 
+  })
   
   // CREATE TWEETS ARTICLES ==================================
   
@@ -60,9 +67,9 @@ $(document).ready(() => {
 
     let tweetText = $('#tweet-text').val();
     const safeHTML = `<p>${escape(tweetText)}</p>`;
-    console.log(safeHTML)
     if (safeHTML === '') {
-      alert("Type your tweet in the text field");
+      $('.error-message').text("Type your tweet in the text field").slideDown().removeClass('hidden');
+      // ("Type your tweet in the text field");
       $('#tweet-text').focus();
     } else if (safeHTML.length - 1 >= 140) {
       alert("Your tweet is too long. Maxlength 140 characters");
@@ -87,7 +94,7 @@ $(document).ready(() => {
       console.log('Something went wrong', err);
     })
     
-    
+  
     
 })
 

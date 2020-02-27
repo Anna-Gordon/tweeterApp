@@ -1,7 +1,8 @@
 .tweet-container {
   border: solid;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  margin-top: 30px;;
 }
 
 article:hover {

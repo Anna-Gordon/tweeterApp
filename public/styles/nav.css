@@ -21,8 +21,35 @@ nav {
 .nav {
   font-family: 'Source Sans Pro';
   margin-right: 40px;
+  margin-bottom: 0px;
 }
 
 .logo {
   margin-left: 40px;
+}
+
+#toggle {
+  color: #e31735;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.toggle {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* #toggle:hover {
+  ani;
+} */
+
+/* @keyframes bounce { 
+  0% { transform: translateY(0); }
+  10% { transform: translateY(-1px); }
+} */
+#toggle:hover {
+  animation: bounce 0.8s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
