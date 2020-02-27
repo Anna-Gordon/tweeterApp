@@ -1,9 +1,11 @@
 .header {
   height: 400px;
-  width: 100%;
+  width: 70%;
   background-color: #eda36b;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
   text-align: center;
-  position: relative;
+  /* position: relative; */
+  margin-top: 65px;
+  padding: 35px;
   margin-bottom: 30px;
 }

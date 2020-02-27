@@ -46,6 +46,7 @@ textarea[name=text] {
  .error-message {
 
   /* image: url('https://i.imgur.com/GnyDvKN.png'); */
+  margin-top: 20px;
   color: #D8000C;
   background-color: #ead6d6;
   border: 2px solid;
