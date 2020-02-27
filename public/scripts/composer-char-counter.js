@@ -12,7 +12,7 @@ $(document).ready(() => {
 
     update(remaining);
   });
-
+  
   function update(count) {
     if (count < 0) {
       $('.counter').html(count).addClass('counter-error');

@@ -88,7 +88,7 @@ $(document).ready(() => {
       .then(() => {
         loadtweets();
       })
-    }   
+    }  
   });
 
   $.get('/tweets', { method: 'GET' })
