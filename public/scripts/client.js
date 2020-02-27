@@ -59,13 +59,17 @@ $(document).ready(() => {
     event.preventDefault();
 
     let tweetText = $('#tweet-text').val();
-    console.log(tweetText)
-    if (tweetText === '') {
+    const safeHTML = `<p>${escape(tweetText)}</p>`;
+    console.log(safeHTML)
+    if (safeHTML === '') {
       alert("Type your tweet in the text field");
       $('#tweet-text').focus();
-    } else if (tweetText.length - 1 >= 10) {
+    } else if (safeHTML.length - 1 >= 140) {
       alert("Your tweet is too long. Maxlength 140 characters");
       $('#tweet-text').focus();
+    } else if (safeHTML.includes('%')) {
+      alert("Unsecure text tweet has been submitted");
+      $('#tweet-text').val('').focus();
     } else {
       $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })
       .then(() => {

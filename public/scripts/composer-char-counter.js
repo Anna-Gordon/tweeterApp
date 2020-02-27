@@ -1,6 +1,6 @@
 $(document).ready(() => {
   
-  let limit = 10;
+  let limit = 140;
   
   let count = $('textarea').val().length;
   let remaining = limit - count;
