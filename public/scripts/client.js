@@ -5,82 +5,86 @@
  */
 $(document).ready(() => {
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
 
-function getDuration(milli){
-  let minutes = Math.floor(milli / 60000);
-  let hours = Math.round(minutes / 60);
-  let days = Math.round(hours / 24);
-
-  return (
-    (days && {days: days}) ||
-    (hours && {hours: hours}) ||
-    {minutes: minutes}
-  )
-};
-
-const createTweetElement = (tweet) => {
   
-  const { name, avatars, handle } = tweet.user;
-  const tweetText = tweet.content.text;
-  const timespamp = tweet.created_at;
-  let days = getDuration(timespamp).days + " days ago";
+  // CREATE TWEETS ARTICLES ==================================
   
-  // console.log(handle, getDuration(timespamp).days, days)
-  let $tweet = $(
-    `<article class="tweet-container">
+  const createTweetElement = (tweet) => {
+    
+    const { name, avatars, handle } = tweet.user;
+    const tweetText = tweet.content.text;
+    const timespamp = tweet.created_at;
+    
+    let $tweet = $(
+      `<article class="tweet-container">
       <header>
-        <div>
-          <img src=${avatars}> 
-          <p class="name">${name}</p>
-        </div>
-        <span class="handle">${handle}</span>
+      <div>
+      <img src=${avatars}> 
+      <p class="name">${name}</p>
+      </div>
+      <span class="handle">${handle}</span>
       </header>
       
       <textarea name="text" class="tweet">${tweetText}</textarea>
       <footer>
-         <h6 class="timestamp">${days}</h6>
+      <h6 class="timestamp">${moment(timespamp).fromNow()}</h6>
       </footer>
-    </article>
-  `).addClass('tweet');
-  return $tweet;
-}
+      </article>
+      `).addClass('tweet');
+      return $tweet;
+    };
+    
+    const renderTweets = function(tweets) {
+      for (let tweet of tweets) {
+        let $tweet = createTweetElement(tweet);
+        $('.tweets-container').prepend($tweet); 
+      }   
+    };
+    
+  // FORM SUBMISSION ==============================================
 
-const renderTweets = function(tweets) {
-  for (let tweet of tweets) {
-    let $tweet = createTweetElement(tweet);
-      $('.tweets-container').append($tweet); 
-  }   
-}
+  const loadtweets = () => {
+    $.get('/tweets', { method: 'GET' })
+      .then((response) => {
+        let newTweet = [response[response.length - 1]]
+        renderTweets(newTweet); 
+        $('#tweet-text').val('').focus();  
+      })
+      .catch((err) => {
+        console.log('Something went wrong', err);
+      })
+  }
   
- renderTweets(data);
-  
+  $('#post-tweet').submit(function () {
+    event.preventDefault();
+
+    let tweetText = $('#tweet-text').val();
+    console.log(tweetText)
+    if (tweetText === '') {
+      alert("Type your tweet in the text field");
+      $('#tweet-text').focus();
+    } else if (tweetText.length - 1 >= 10) {
+      alert("Your tweet is too long. Maxlength 140 characters");
+      $('#tweet-text').focus();
+    } else {
+      $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })
+      .then(() => {
+        loadtweets();
+      })
+    }   
+    
+  });
+
+  $.get('/tweets', { method: 'GET' })
+    .then((response) => {
+      renderTweets(response);
+    })
+    .fail((err) => {
+      console.log('Something went wrong', err);
+    })
+    
+    
+    
 })
 
-
-// console.log($tweet); // to see what it looks like
-// $('.tweets-container').append($tweet); 
 

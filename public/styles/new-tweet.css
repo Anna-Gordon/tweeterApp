@@ -33,3 +33,7 @@ textarea[name=text] {
   font-weight: 600;
   margin-bottom: 18px;
 }
+
+.new-tweet h2 {
+  text-align: center;
+}

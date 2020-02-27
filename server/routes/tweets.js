@@ -23,10 +23,6 @@ module.exports = function(DataHelpers) {
       return;
     }
 
-    // tweetsRoutes.post("/tweets", (req, res) => {
-     
-    // });
-
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
     const tweet = {
       user: user,
