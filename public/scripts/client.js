@@ -12,7 +12,9 @@ $(document).ready(() => {
   $('#toggle').on('click', () => {
     $('.new-tweet').slideToggle();
     $('#tweet-text').focus(); 
-  })
+  });
+
+
   
   // CREATE TWEETS ARTICLES ==================================
   
@@ -64,18 +66,20 @@ $(document).ready(() => {
   
   $('#post-tweet').submit(function () {
     event.preventDefault();
-
+    $('.error-message').slideUp(200);
+    
     let tweetText = $('#tweet-text').val();
     const safeHTML = `<p>${escape(tweetText)}</p>`;
-    if (safeHTML === '') {
-      $('.error-message').text("Type your tweet in the text field").slideDown().removeClass('hidden');
-      // ("Type your tweet in the text field");
+    if (tweetText === null || tweetText.length < 1 ) {  
+      $('.error-message').text('Type your tweet').slideDown(200)  
+      // $('#error-message-text').text('Type your tweet')
+      $('.error-message').slideDown(200)
       $('#tweet-text').focus();
-    } else if (safeHTML.length - 1 >= 140) {
-      alert("Your tweet is too long. Maxlength 140 characters");
+    } if (tweetText.length - 1 >= 140) {
+      $('.error-message').text("Your tweet is too long. Maxlength 140 characters").slideDown(200);
       $('#tweet-text').focus();
-    } else if (safeHTML.includes('%')) {
-      alert("Unsecure text tweet has been submitted");
+    } else if (safeHTML.includes('%3C')) {
+      $('.error-message').text("Unsecure text tweet has been submitted").slideDown(200);
       $('#tweet-text').val('').focus();
     } else {
       $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })
@@ -83,7 +87,6 @@ $(document).ready(() => {
         loadtweets();
       })
     }   
-    
   });
 
   $.get('/tweets', { method: 'GET' })

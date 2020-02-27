@@ -1,4 +1,8 @@
 
+.new-tweet {
+  display: none;
+}
+
 .submit-tweet {
   font-family: 'Bungee';
 }
@@ -59,11 +63,11 @@ textarea[name=text] {
   -moz-osx-font-smoothing:grayscale;
  } */
 
- .error-message.hidden {
+ .error-message {
   color: #D8000C;
-  background-color: #FFD2D2;
+  background-color: #ead6d6;
   border: 2px solid;
   padding: 10px;
-  visibility: hidden;
+  display: none;
 }
 

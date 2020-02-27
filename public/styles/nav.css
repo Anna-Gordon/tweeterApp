@@ -40,16 +40,14 @@ nav {
   text-align: center;
 }
 
-/* #toggle:hover {
-  ani;
-} */
-
-/* @keyframes bounce { 
-  0% { transform: translateY(0); }
-  10% { transform: translateY(-1px); }
-} */
-#toggle:hover {
-  animation: bounce 0.8s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+/* #toggle {
+  animation-name: bounce-2;
+  animation-timing-function: ease;
+ 
 }
+
+@keyframes bounce-2 {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-100px); }
+  100% { transform: translateY(0); }
+} */
