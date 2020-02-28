@@ -9,7 +9,6 @@ $(document).ready(() => {
   $('textarea').keyup(function(event) {
     count = $(this).val().length;
     remaining = limit - count;
-
     update(remaining);
   });
   

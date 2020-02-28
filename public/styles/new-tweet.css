@@ -11,7 +11,7 @@
 input[type=submit] {
   background-color: #4056A1;
   color: #FFFFFF;
-  margin-bottom: 5%;
+  margin-bottom: 18px;
 }
 .counter {
   float: right;

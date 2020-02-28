@@ -54,6 +54,10 @@ nav {
    background-color: #eda36b;
    background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
    position: absolute;
+   color: #bd643e;
+  }
+  .navbar {
+    align-items: flex-start;
   }
 }
 

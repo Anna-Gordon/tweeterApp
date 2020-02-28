@@ -55,13 +55,15 @@ $(document).ready(() => {
   };
     
   // FORM SUBMISSION === ERROR MESSAGE ==== SAFEHTML==========
+  
+  const $tweetText = $('#tweet-text');
 
   const loadtweets = () => {
     $.get('/tweets', { method: 'GET' })
       .then((response) => {
         let newTweet = [response[response.length - 1]];
         renderTweets(newTweet);
-        $('#tweet-text').val('').focus();
+        $tweetText.val('').focus();
         $('.counter').html('140');
       })
       .catch((err) => {
@@ -80,13 +82,13 @@ $(document).ready(() => {
 
     if (tweetText === null || tweetText.length < 1) {
       $errorMessage.html(errIcon + ' Please, type your tweet').slideDown(200);
-      $('#tweet-text').focus();
+      $tweetText.focus();
     } if (tweetText.length - 1 >= 140) {
       $errorMessage.html(errIcon + ' Your tweet is too long. Maxlength is 140 characters').slideDown(200);
-      $('#tweet-text').focus();
+      $tweetText.focus();
     } else if (safeHTML.includes('%3C')) {
       $errorMessage.html(errIcon + ' Unsecure text tweet has been submitted').slideDown(200);
-      $('#tweet-text').val('').focus();
+      $tweetText.val('').focus();
     } else {
       $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })
         .then(() => {
