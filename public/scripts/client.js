@@ -26,18 +26,23 @@ $(document).ready(() => {
     
     let $tweet = $(
       `<article class="tweet-container">
-      <header>
-      <div>
-      <img src=${avatars}> 
-      <p class="name">${name}</p>
-      </div>
-      <span class="handle">${handle}</span>
-      </header>
-      
-      <textarea name="text" class="tweet">${tweetText}</textarea>
-      <footer>
-      <h6 class="timestamp">${moment(timespamp).fromNow()}</h6>
-      </footer>
+        <header>
+          <div>
+            <img src=${avatars}> 
+            <p class="name">${name}</p>
+          </div>
+          <span class="handle">${handle}</span>
+        </header>
+        
+        <textarea name="text" class="tweet">${tweetText}</textarea>
+        <footer>
+          <h6 class="timestamp">${moment(timespamp).fromNow()}</h6>
+          <div class="article-icons">
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </footer>
       </article>
       `).addClass('tweet');
       return $tweet;
@@ -73,9 +78,9 @@ $(document).ready(() => {
     const safeHTML = `<p>${escape(tweetText)}</p>`;
     const $errorMessage = $('.error-message');
     const errIcon ='<i class="fa fa-times-circle"></i>';
+
     if (tweetText === null || tweetText.length < 1 ) {  
-      $errorMessage.html(errIcon + ' Please, type your tweet').slideDown(200)  
-      // $('.error-message').slideDown(200)
+      $errorMessage.html(errIcon + ' Please, type your tweet').slideDown(200);
       $('#tweet-text').focus();
     } if (tweetText.length - 1 >= 140) {
       $errorMessage.html(errIcon + ' Your tweet is too long. Maxlength is 140 characters').slideDown(200);
@@ -97,10 +102,8 @@ $(document).ready(() => {
     })
     .fail((err) => {
       console.log('Something went wrong', err);
-    })
-    
-  
-    
-})
+    });
+       
+});
 
 

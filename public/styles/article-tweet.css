@@ -5,9 +5,6 @@
   margin-top: 30px;;
 }
 
-article:hover {
-  box-shadow: 10px 10px 5px #9ab7d0;
-}
 
 .tweet-container header{
   background-color: #f4f1ec;
@@ -24,7 +21,7 @@ article:hover {
 }
 
 .tweet-container h6 {
-  margin: auto;
+  margin: 0px;
 }
 
 .tweet-container p{
@@ -36,10 +33,23 @@ article:hover {
   color: #9ab7d0;
 }
 
+article:hover {
+  box-shadow: 10px 10px 5px #9ab7d0;
+}
 article:hover span {
   opacity: 1;
 }
 
 .tweet-container img{
   margin-right: 6px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-icons {
+  font-size: large;
+  color: #174061;
 }

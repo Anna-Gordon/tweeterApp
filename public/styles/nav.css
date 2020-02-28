@@ -16,22 +16,15 @@ nav {
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  padding: 40px;
 }
 
 .nav {
   font-family: 'Source Sans Pro';
-  margin-right: 40px;
-  margin-bottom: 0px;
-}
-
-.logo {
-  margin-left: 40px;
 }
 
 #toggle {
   color: #e31735;
-  margin-bottom: 0px;
-  margin-top: 0px;
 }
 
 .toggle {
@@ -50,6 +43,22 @@ nav {
 @keyframes fade {
   0%,100% { opacity: 0 }
   50% { opacity: 1 }
+}
+
+ /* 
+    Media Querries 
+  */
+/* @media (min-width: 300px) and (max-width: 599px) {
+
+} */
+
+
+@media only screen and (max-width: 1024px) {
+  nav {
+   background-color: #eda36b;
+   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+   position: absolute;
+  }
 }
 /* #toggle {
   animation-name: bounce-2;

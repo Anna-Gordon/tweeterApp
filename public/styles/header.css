@@ -1,11 +1,19 @@
 .header {
   height: 400px;
-  width: 70%;
+  width: 100%;
   background-color: #eda36b;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
   text-align: center;
-  /* position: relative; */
-  margin-top: 65px;
   padding: 35px;
   margin-bottom: 30px;
 }
+
+
+ @media only screen and (max-width: 1024px) {
+   .header {
+    width: 100%;
+    margin: 0px;
+    padding-top: 0px;
+   }
+ } 
+
