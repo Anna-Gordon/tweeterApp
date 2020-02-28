@@ -35,10 +35,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Built With
 
-Express - Node.js web application framework
-jQuery - JavaScript library
-AJAX
-HTML, CSS 
+- Express - Node.js web application framework
+- jQuery - JavaScript library
+- AJAX
+- HTML, CSS 
 
 
 
