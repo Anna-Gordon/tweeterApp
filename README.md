@@ -6,8 +6,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["Urls page"](https://github.com/SweetBeef555/tinyapp/blob/master/docs/urls-page.png?raw=true)
-!["Edit longURL page"](https://github.com/SweetBeef555/tinyapp/blob/master/docs/shortURL-page.png?raw=true)
+!["Responsive layout"](https://github.com/SweetBeef555/tweeterApp/blob/master/public/docs/Screen%20Shot%202020-02-27%20at%205.57.59%20PM.png?raw=true)
+!["Home page"](https://github.com/SweetBeef555/tweeterApp/blob/master/public/docs/Screen%20Shot%202020-02-27%20at%206.01.12%20PM.png?raw=true)
 
 ## Getting Started
 
