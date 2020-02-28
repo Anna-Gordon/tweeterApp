@@ -1,10 +1,10 @@
+/* STYLE FOR TWEET */
 .tweet-container {
   border: solid;
   padding: 10px;
   margin-bottom: 25px;
   margin-top: 30px;;
 }
-
 
 .tweet-container header{
   background-color: #f4f1ec;
@@ -49,7 +49,12 @@ footer {
   justify-content: space-between;
 }
 
+article:hover .article-icons {
+  opacity: 1;
+}
+
 .article-icons {
+  opacity: 0;
   font-size: large;
   color: #174061;
 }

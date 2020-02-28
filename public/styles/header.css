@@ -1,4 +1,4 @@
-.header {
+.header-image {
   height: 400px;
   width: 100%;
   background-color: #eda36b;
@@ -10,7 +10,7 @@
 
 
  @media only screen and (max-width: 1024px) {
-   .header {
+   .header-image {
     width: 100%;
     margin: 0px;
     padding-top: 0px;

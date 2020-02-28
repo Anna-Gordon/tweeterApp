@@ -9,14 +9,13 @@ $(document).ready(() => {
   // TOGGLE IN NAVBAR ====================================
 
   
-  $('#toggle').on('click', () => {
+  $('#compose').on('click', () => {
     $('.new-tweet').slideToggle(500);
-    $('#tweet-text').focus(); 
+    $('#tweet-text').focus();
   });
 
-
   
-  // CREATE TWEETS ARTICLES ==================================
+  // CREATE TWEETS ARTICLES ===============================
   
   const createTweetElement = (tweet) => {
     
@@ -45,41 +44,41 @@ $(document).ready(() => {
         </footer>
       </article>
       `).addClass('tweet');
-      return $tweet;
-    };
+    return $tweet;
+  };
     
-    const renderTweets = function(tweets) {
-      for (let tweet of tweets) {
-        let $tweet = createTweetElement(tweet);
-        $('.tweets-container').prepend($tweet); 
-      }   
-    };
+  const renderTweets = function(tweets) {
+    for (let tweet of tweets) {
+      let $tweet = createTweetElement(tweet);
+      $('.tweets-container').prepend($tweet);
+    }
+  };
     
   // FORM SUBMISSION === ERROR MESSAGE ==== SAFEHTML==========
 
   const loadtweets = () => {
     $.get('/tweets', { method: 'GET' })
       .then((response) => {
-        let newTweet = [response[response.length - 1]]
-        renderTweets(newTweet); 
-        $('#tweet-text').val('').focus();  
+        let newTweet = [response[response.length - 1]];
+        renderTweets(newTweet);
+        $('#tweet-text').val('').focus();
         $('.counter').html('140');
       })
       .catch((err) => {
         console.log('Something went wrong', err);
-      })
-  }
+      });
+  };
   
-  $('#post-tweet').submit(function () {
+  $('#post-tweet').submit(function() {
     event.preventDefault();
     $('.error-message').slideUp(200);
     
     let tweetText = $('#tweet-text').val();
     const safeHTML = `<p>${escape(tweetText)}</p>`;
     const $errorMessage = $('.error-message');
-    const errIcon ='<i class="fa fa-times-circle"></i>';
+    const errIcon = '<i class="fa fa-times-circle"></i>';
 
-    if (tweetText === null || tweetText.length < 1 ) {  
+    if (tweetText === null || tweetText.length < 1) {
       $errorMessage.html(errIcon + ' Please, type your tweet').slideDown(200);
       $('#tweet-text').focus();
     } if (tweetText.length - 1 >= 140) {
@@ -90,10 +89,10 @@ $(document).ready(() => {
       $('#tweet-text').val('').focus();
     } else {
       $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })
-      .then(() => {
-        loadtweets();
-      })
-    }  
+        .then(() => {
+          loadtweets();
+        });
+    }
   });
 
   $.get('/tweets', { method: 'GET' })
