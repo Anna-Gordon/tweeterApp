@@ -48,7 +48,6 @@ body {
  }
 
  @media only screen and (max-width: 1024px) {
-
   main {
     margin-top: 0px;
     width: 100%;
@@ -61,5 +60,5 @@ body {
   }
   .header-flex {
     width: 100%;
-   }
+  }
 }

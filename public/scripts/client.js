@@ -1,21 +1,16 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+
 $(document).ready(() => {
 
 
-  // TOGGLE IN NAVBAR ====================================
+  // TOGGLE IN NAVBAR ============================
 
-  
   $('#compose').on('click', () => {
     $('.new-tweet').slideToggle(500);
     $('#tweet-text').focus();
   });
 
   
-  // CREATE TWEETS ARTICLES ===============================
+  // TWEET ARTICLE ================================
   
   const createTweetElement = (tweet) => {
     
