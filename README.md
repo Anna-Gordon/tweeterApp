@@ -1,4 +1,4 @@
-# Tweeter Project
+# Tweeter
 
 Tweeter is a simple, single-page Twitter clone.
 
